@@ -60,7 +60,11 @@ box.text(points);               // changes the text of the box to display the va
                     direction = -1;
                     console.log(direction);
                 }
-                
+             else if(position === 0) {
+                    console.log("Left Wall Hit");
+                    direction = 1;
+                    console.log(direction);
+    }
 				box.css('left', position);      // set the 'left' CSS property of the box to the new value of position
 			};
 
