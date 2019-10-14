@@ -9,11 +9,14 @@
 
 	<!-- BEGIN CSS -->
 	<style>
+	body {
+	    background-image: url(https://steamuserimages-a.akamaihd.net/ugc/771720478341580174/C27E4FC2EF96E61787AB5524D35AAFE4D32DB942/)
+	}
 		/* TODO 1 */
 		.box {
 			width:80px;
 			height: 70px;
-			background-color: yellow;
+			background-color:blue;
 			font-size: 390%;
 			text-align: center;
 			display: block;
@@ -75,7 +78,8 @@ box.text(points);               // changes the text of the box to display the va
 				points += 1;           // increase the point total
                 box.text(points);      // update the new points total displayed by the box
                 position = 0;         // reset the position of the box to 0
-                speed += 3;    // increase the speed of the box on every click
+                speed += 3; // increase the speed of the box on every click
+                direction = 1;
 			};
 
 
