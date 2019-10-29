@@ -35,11 +35,9 @@ var circles = [];  //variable to store all circles in a Array
         
 
         // TODO 3 / 7 : Call the drawCircle function 
-drawCircle()
-drawCircle()
-drawCircle()
-drawCircle()
-drawCircle()
+for (var i = 0; i < 100; i++){
+    drawCircle()
+}
         view.addChild(fps);
         app.addUpdateable(fps);
     
@@ -68,20 +66,19 @@ drawCircle()
     
         function update() {
             // TODO 4 : Update the circle's position //
-physikz.updatePosition(circles[0]);
-physikz.updatePosition(circles[1]);
-physikz.updatePosition(circles[2]);
-physikz.updatePosition(circles[3]);
-physikz.updatePosition(circles[4]);
+
+
           
             // TODO 5 : Call game.checkCirclePosition on your circles.
-           game.checkCirclePosition(circles[0]);
-           game.checkCirclePosition(circles[1]);
-           game.checkCirclePosition(circles[2]);
-           game.checkCirclePosition(circles[3]);
-           game.checkCirclePosition(circles[4]);
+          
+
             // TODO 8 : Iterate over the array
-           
+           for (var i = 0; i < circles.length; i++) {
+    var eachCircle = circles[i];
+    physikz.updatePosition(eachCircle)
+    game.checkCirclePosition(eachCircle)
+    // code to repeat using eachValue
+}
 
         }
         
