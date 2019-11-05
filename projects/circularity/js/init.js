@@ -35,7 +35,7 @@ var circles = [];  //variable to store all circles in a Array
         
 
         // TODO 3 / 7 : Call the drawCircle function 
-for (var i = 0; i < 100; i++){
+for (var i = 0; i < 500; i++){
     drawCircle()
 }
         view.addChild(fps);
