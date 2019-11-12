@@ -94,7 +94,7 @@ background.addChild(tree);
 }
             
             // TODO 5: Part 2 - Parallax
-            building.x = building.x + -1;
+            building.x = building.x + -0.5;
             if(building.x < -200) {
     building.x = canvasWidth;
 }
