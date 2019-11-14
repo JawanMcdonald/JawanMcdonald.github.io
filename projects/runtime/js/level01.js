@@ -29,7 +29,9 @@ var level01 = function (window) {
 var hitZoneSize = 25;
 var damageFromObstacle = 10;
 var myObstacle = game.createObstacle(hitZoneSize,damageFromObstacle);
-
+myObstacle.x = 600;
+myObstacle.y = 480;
+game.addGameItem(myObstacle);
     }
 };
 

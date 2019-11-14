@@ -1,4 +1,4 @@
-var background = function (window) {
+ var background = function (window) {
     
     'use strict';
     
@@ -38,7 +38,7 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth, canvasHeight, 'teal');
+            var backgroundFill = draw.rect(canvasWidth, canvasHeight, 'silver');
             background.addChild(backgroundFill);
             //var shape = draw.bitmap('img/moon.png');
            // background.addChild(shape);
@@ -63,7 +63,7 @@ background.addChild(moon);
 var buildingHeight = 300;
 var building;
 for(var i=0;i<10;++i) {
-    building = draw.rect(75,buildingHeight,'black','yellow',1);
+    building = draw.rect(75,buildingHeight,'white','red',1);
     building.x = 200*i;
     building.y = groundY-buildingHeight;
     background.addChild(building);
@@ -94,6 +94,7 @@ background.addChild(tree);
 }
             
             // TODO 5: Part 2 - Parallax
+            for(var i = 0; i < 5; i++)
             building.x = building.x + -0.5;
             if(building.x < -200) {
     building.x = canvasWidth;
