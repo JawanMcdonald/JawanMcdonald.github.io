@@ -8,7 +8,6 @@ var level01 = function (window) {
     window.opspark.runLevelInGame = function(game) {
         // some useful constants 
         var groundY = game.groundY;
-
         // this data will allow us to define all of the
         // behavior of our game
         var levelData = {
@@ -16,42 +15,58 @@ var level01 = function (window) {
             number: 1, 
             speed: -3,
             gameItems: [
-                {type: 'sawblade',x:400,y:groundY},
-                {type: 'sawblade',x:600,y:groundY},
-                {type: 'sawblade',x:900,y:groundY}
+                {type: 'sawblade',x:400,y:375},
+                {type: 'sawblade',x:600,y:470},
+                {type: 'sawblade',x:1200,y:470}
             ]
         };
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
-        game.setDebugMode(false);
+        game.setDebugMode(true);
 
         // BEGIN EDITING YOUR CODE HERE
-//var hitZoneSize = 25;
-//var damageFromObstacle = 10;
-//var myObstacle = game.createObstacle(hitZoneSize,damageFromObstacle);
-//myObstacle.x = 600;
-//myObstacle.y = 480;
-//game.addGameItem(myObstacle);
-//var obstacleImage = draw.bitmap('img/sawblade.png');
-//myObstacle.addChild(obstacleImage);
-//obstacleImage.x = -25;
-//obstacleImage.y = -25;
-function createSawBlade(x,y) {
-    var hitZoneSize = 25;
+var hitZoneSize = 25;
 var damageFromObstacle = 10;
-var myObstacle = game.createObstacle(hitZoneSize,damageFromObstacle);
-myObstacle.x = x;
-myObstacle.y = y;
-game.addGameItem(myObstacle);
-var obstacleImage = draw.bitmap('img/sawblade.png');
-myObstacle.addChild(obstacleImage);
-obstacleImage.x = -25;
-obstacleImage.y = -25;// your code goes here
-}  
-createSawBlade(900, 250)
-createSawBlade(250, 400)
-createSawBlade(100, 300)
+
+
+function createSawBlade(x,y) {
+    var myObstacle = game.createObstacle(hitZoneSize,damageFromObstacle);
+    myObstacle.x = x;
+    myObstacle.y = y;
+    game.addGameItem(myObstacle);
+    var obstacleImage = draw.bitmap('img/sawblade.png');
+    myObstacle.addChild(obstacleImage);
+    obstacleImage.x = -25;
+    obstacleImage.y = -25;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    for( var j = 0; j < levelData.gameItems.length; j ++) {
+        var gameItem = levelData.gameItems[j];
+        if (levelData.gameItems[j].type === 'sawblade'){
+            createSawBlade(gameItem.x, gameItem.y);
+            }
+//            if (leveldata.gameItems[j].type === 'enemy'){
+//                createEnemy(gameItem.x, gameItem.y);
+//            }
+//            if (levelData.gameItems[j].type === 'reward'){
+//                createReward(gameItem.x, gameItem.y);
+//            }
+    }
+
+   };
 };
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

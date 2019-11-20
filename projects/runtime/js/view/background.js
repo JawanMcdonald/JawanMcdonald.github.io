@@ -46,61 +46,63 @@
             
             // TODO: 3 - Add a moon and starfield
             var circle;
-for(var i=0;i<100;i++) {
-    circle = draw.circle(10,'white','LightGray',2);
-    circle.x = canvasWidth*Math.random();
-    circle.y = groundY*Math.random();
-    background.addChild(circle);
-}
-var moon = draw.bitmap('img/moon.png');
-moon.x = 1500;
-moon.y = 25;
-moon.scaleX = .70;
-moon.scaleY = .70;
-background.addChild(moon);
+            for(var i = 0; i < 100;i++) {
+                circle = draw.circle(10,'white','LightGray',2);
+                circle.x = canvasWidth*Math.random();
+                circle.y = groundY*Math.random();
+                background.addChild(circle);
+            }
+            var moon = draw.bitmap('img/moon.png');
+            moon.x = 1500;
+            moon.y = 25;
+            moon.scaleX = .70;
+            moon.scaleY = .70;
+            background.addChild(moon);
             
             // TODO: 5 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-var buildingHeight = 300;
-var building;
-for(var i=0;i<10;++i) {
-    building = draw.rect(75,buildingHeight,'white','red',1);
-    building.x = 200*i;
-    building.y = groundY-buildingHeight;
-    background.addChild(building);
-    buildings.push(building);
-}
+            var buildingHeight = 300;
+            var building;
+            for(var j=0;j < 10; j++) {
+                building = draw.rect(75,buildingHeight,'white','red',1);
+                building.x = 200*j;
+                building.y = groundY-buildingHeight;
+                background.addChild(building);
+                buildings.push(building);
+            }
             
             // TODO 4: Part 1 - Add a tree
             tree = draw.bitmap('img/tree.png');
-tree.x = 1600;
-tree.y = 250;
-background.addChild(tree);
+            tree.x = 1600;
+            tree.y = 250;
+            background.addChild(tree);
             
-        } // end of render function - DO NOT DELETE
+        } 
+        // end of render function - DO NOT DELETE
         
         
         // Perform background animation
         // called on each timer "tick" - 60 times per second
         function update() {
             // useful variables
-            var canvasWidth = app.canvas.width;
-            var canvasHeight = app.canvas.height;
-            var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
             tree.x = tree.x + -4;
             if(tree.x < -200) {
-    tree.x = canvasWidth;
-}
+                tree.x = canvasWidth;
+            }
             
             // TODO 5: Part 2 - Parallax
-            for(var i = 0; i < 5; i++)
-            building.x = building.x + -0.5;
-            if(building.x < -200) {
-    building.x = canvasWidth;
-}
+            for(var i = 0; i < buildings.length; i++){
+                buildings[i].x = buildings[i].x + -0.5;
+                if(buildings[i].x < -200) {
+                 buildings[i].x = canvasWidth;
+                }
+            } 
+        }
 
-        } // end of update function - DO NOT DELETE
+        // end of update function - DO NOT DELETE
+    
+
         
         
         
@@ -116,9 +118,11 @@ background.addChild(tree);
         /* render and return the background */
         render();
         return background;
-    };
-};
+        
+}
 
+
+};
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
     (typeof process.versions.node !== 'undefined')) {
