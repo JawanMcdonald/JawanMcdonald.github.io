@@ -39,7 +39,15 @@ function createSawBlade(x,y) {
     obstacleImage.x = -25;
     obstacleImage.y = -25;
     }
-    
+    var enemy =  game.createGameItem('enemy',25);
+var redSquare = draw.rect(50,50,'red');
+redSquare.x = -25;
+redSquare.y = -25;
+enemy.addChild(redSquare);
+enemy.x = 400;
+enemy.y = groundY-50;
+enemy.velocityX = -1;
+game.addGameItem(enemy);
     
     
     
@@ -58,9 +66,9 @@ function createSawBlade(x,y) {
         if (levelData.gameItems[j].type === 'sawblade'){
             createSawBlade(gameItem.x, gameItem.y);
             }
-//            if (leveldata.gameItems[j].type === 'enemy'){
-//                createEnemy(gameItem.x, gameItem.y);
-//            }
+            if (leveldata.gameItems[j].type === 'enemy'){
+               createEnemy(gameItem.x, gameItem.y);
+            }
 //            if (levelData.gameItems[j].type === 'reward'){
 //                createReward(gameItem.x, gameItem.y);
 //            }
