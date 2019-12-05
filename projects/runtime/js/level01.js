@@ -51,8 +51,8 @@ var redSquare = draw.bitmap("https://gamepedia.cursecdn.com/smite_gamepedia/thum
 redSquare.x = -25;
 redSquare.y = -25;
 enemy.addChild(redSquare);
-enemy.x = 400;
-enemy.y = groundY-50;
+enemy.x = x;
+enemy.y = y;
 enemy.velocityX = -1;
 //rotationalVelocity =10;
 game.addGameItem(enemy);
@@ -77,8 +77,8 @@ rewardImage.y = -25;
 rewardImage.scaleX = .3;
 rewardImage.scaleY = .3;
 reward.addChild(rewardImage);
-reward.x = 600;
-reward.y = groundY-70;
+reward.x = x;
+reward.y = y;
 reward.velocityX = -1;
 game.addGameItem(reward);
 
