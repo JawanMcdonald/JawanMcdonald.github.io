@@ -87,8 +87,8 @@ reward.onPlayerCollision = function() {
   game.increaseScore(50000);
   reward.fadeOut();
 };
-enemy.onProjectileCollision = function() {
-     
+ reward.onProjectileCollision = function() {
+
  };
 }
 
