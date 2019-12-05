@@ -6,13 +6,13 @@ var level01 = function (window) {
     var createjs = window.createjs;
 
     window.opspark.runLevelInGame = function(game) {
-        // some useful constants 
+        // some useful constants
         var groundY = game.groundY;
         // this data will allow us to define all of the
         // behavior of our game
         var levelData = {
             name: "Robot Romp",
-            number: 1, 
+            number: 1,
             speed: -3,
             gameItems: [
                 {type: 'sawblade',x:400,y:375},
@@ -47,14 +47,14 @@ function createSawBlade(x,y) {
     }
     function createEnemy(x, y) {
     var enemy =  game.createGameItem('enemy',25);
-var redSquare = draw.rect(50,50,'red');
+var redSquare = draw.bitmap("https://gamepedia.cursecdn.com/smite_gamepedia/thumb/c/cb/Enemy_eSports_logo.png/250px-Enemy_eSports_logo.png?version=cd11b74e68d84dbd96ba628f530e5577");
 redSquare.x = -25;
 redSquare.y = -25;
 enemy.addChild(redSquare);
 enemy.x = 400;
 enemy.y = groundY-50;
 enemy.velocityX = -1;
-enemy.rotationalVelocity =10;
+//rotationalVelocity =10;
 game.addGameItem(enemy);
 
 enemy.onPlayerCollision = function() {
@@ -66,14 +66,16 @@ enemy.onPlayerCollision = function() {
      console.log('Hallebot has hit the enemy!');
      game.increaseScore(100);
      enemy.fadeOut();
- };    
+ };
 }
 
 function createReward(x,y){
 var reward = game.createGameItem('reward',25);
-var rewardImage = draw.rect(50,50,'green');
+var rewardImage = draw.bitmap("https://i1.wp.com/freepngimages.com/wp-content/uploads/2015/10/gold-trophy-transparent-background.png?fit=486%2C598");
 rewardImage.x = -25;
 rewardImage.y = -25;
+rewardImage.scaleX = .3;
+rewardImage.scaleY = .3;
 reward.addChild(rewardImage);
 reward.x = 400;
 reward.y = groundY-50;
@@ -84,18 +86,18 @@ reward.onPlayerCollision = function() {
   console.log('Hallebot got points!');
   game.increaseScore(50);
   reward.fadeOut();
-};    
+};
 }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
     for( var j = 0; j < levelData.gameItems.length; j ++) {
         var gameItem = levelData.gameItems[j];
         if (levelData.gameItems[j].type === 'sawblade'){
