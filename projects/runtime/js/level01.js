@@ -77,16 +77,19 @@ rewardImage.y = -25;
 rewardImage.scaleX = .3;
 rewardImage.scaleY = .3;
 reward.addChild(rewardImage);
-reward.x = 400;
-reward.y = groundY-50;
+reward.x = 600;
+reward.y = groundY-70;
 reward.velocityX = -1;
 game.addGameItem(reward);
 
 reward.onPlayerCollision = function() {
   console.log('Hallebot got points!');
-  game.increaseScore(50);
+  game.increaseScore(50000);
   reward.fadeOut();
 };
+enemy.onProjectileCollision = function() {
+     
+ };
 }
 
 
