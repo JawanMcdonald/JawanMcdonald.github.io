@@ -28,7 +28,7 @@ var level01 = function (window) {
         };
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
-        game.setDebugMode(true);
+        game.setDebugMode(false);
 
         // BEGIN EDITING YOUR CODE HERE
 var hitZoneSize = 25;
@@ -84,7 +84,7 @@ game.addGameItem(reward);
 
 reward.onPlayerCollision = function() {
   console.log('Hallebot got points!');
-  game.increaseScore(50000);
+  game.increaseScore(1000);
   reward.fadeOut();
 };
  reward.onProjectileCollision = function() {
