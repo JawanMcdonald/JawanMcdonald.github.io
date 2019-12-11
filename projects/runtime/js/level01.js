@@ -21,14 +21,14 @@ var level01 = function (window) {
                 {type: 'enemy',x:3100,y:groundY-50},
                 {type: 'enemy',x:1930,y:groundY-50},
                 {type: 'enemy',x:1290,y:groundY-50},
-                {type: 'reward',x:2500,y:groundY-20},
-                {type: 'reward',x:3629,y:groundY - 47},
+                {type: 'reward',x:2500,y:groundY-138},
+                {type: 'reward',x:3629,y:groundY - 138},
                 {type: 'reward',x:2110,y:groundY - 138}
             ]
         };
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
-        game.setDebugMode(true);
+        game.setDebugMode(false);
 
         // BEGIN EDITING YOUR CODE HERE
 var hitZoneSize = 25;
@@ -84,7 +84,7 @@ function createReward(x,y){
     
     reward.onProjectileCollision =function(){
         console.log("Hallebot has destroyed the reward");
-        //reward.fadeOut();
+        reward.fadeOut();
     };
     reward.onPlayerCollision = function() {
       console.log('Hallebot got points!');
