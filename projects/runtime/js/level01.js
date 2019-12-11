@@ -84,7 +84,7 @@ function createReward(x,y){
     
     reward.onProjectileCollision =function(){
         console.log("Hallebot has destroyed the reward");
-        reward.fadeOut();
+        //reward.fadeOut();
     };
     reward.onPlayerCollision = function() {
       console.log('Hallebot got points!');
