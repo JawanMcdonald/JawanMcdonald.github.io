@@ -19,7 +19,7 @@ var level01 = function (window) {
                 {type: 'sawblade',x:600,y:470},
                 {type: 'sawblade',x:1200,y:470},
                 {type: 'enemy',x:400,y:groundY-50},
-                {type: 'enemy',x:800,y:groundY-50},
+                {type: 'enemy',x:890,y:groundY-50},
                 {type: 'enemy',x:1200,y:groundY-50},
                 {type: 'reward',x:430,y:groundY-1},
                 {type: 'reward',x:720,y:groundY - 47},
@@ -28,7 +28,7 @@ var level01 = function (window) {
         };
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
-        game.setDebugMode(false);
+        game.setDebugMode(true);
 
         // BEGIN EDITING YOUR CODE HERE
 var hitZoneSize = 25;
