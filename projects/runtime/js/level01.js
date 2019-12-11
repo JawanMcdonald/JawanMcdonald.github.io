@@ -18,12 +18,12 @@ var level01 = function (window) {
                 {type: 'sawblade',x:400,y:375},
                 {type: 'sawblade',x:600,y:470},
                 {type: 'sawblade',x:1200,y:470},
-                {type: 'enemy',x:400,y:groundY-50},
-                {type: 'enemy',x:730,y:groundY-50},
-                {type: 'enemy',x:1400,y:groundY-50},
-                {type: 'reward',x:590,y:groundY-20},
-                {type: 'reward',x:929,y:groundY - 47},
-                {type: 'reward',x:1110,y:groundY - 138}
+                {type: 'enemy',x:3100,y:groundY-50},
+                {type: 'enemy',x:1930,y:groundY-50},
+                {type: 'enemy',x:1290,y:groundY-50},
+                {type: 'reward',x:2500,y:groundY-20},
+                {type: 'reward',x:3629,y:groundY - 47},
+                {type: 'reward',x:2110,y:groundY - 138}
             ]
         };
         window.levelData = levelData;
@@ -44,52 +44,58 @@ function createSawBlade(x,y) {
     myObstacle.addChild(obstacleImage);
     obstacleImage.x = -25;
     obstacleImage.y = -25;
-    }
-    function createEnemy(x, y) {
-    var enemy =  game.createGameItem('enemy',25);
-var redSquare = draw.bitmap("https://gamepedia.cursecdn.com/smite_gamepedia/thumb/c/cb/Enemy_eSports_logo.png/250px-Enemy_eSports_logo.png?version=cd11b74e68d84dbd96ba628f530e5577");
-redSquare.x = -25;
-redSquare.y = -25;
-enemy.addChild(redSquare);
-enemy.x = x;
-enemy.y = y;
-enemy.velocityX = -1;
-//rotationalVelocity =10;
-game.addGameItem(enemy);
-
-enemy.onPlayerCollision = function() {
-    console.log('The enemy has hit Halle');
-    game.changeIntegrity(-10);
-    enemy.fadeOut();
-};
- enemy.onProjectileCollision = function() {
-     console.log('Hallebot has hit the enemy!');
-     game.increaseScore(100);
-     enemy.fadeOut();
- };
 }
+    function createEnemy(x, y) {
+        var enemy =  game.createGameItem('enemy',25);
+            var redSquare = draw.bitmap("https://gamepedia.cursecdn.com/smite_gamepedia/thumb/c/cb/Enemy_eSports_logo.png/250px-Enemy_eSports_logo.png?version=cd11b74e68d84dbd96ba628f530e5577");
+            redSquare.x = -25;
+            redSquare.y = -25;
+            enemy.addChild(redSquare);
+            enemy.x = x;
+            enemy.y = y;
+            enemy.velocityX = -1;
+            //rotationalVelocity =10;
+            game.addGameItem(enemy);
+    
+            enemy.onPlayerCollision = function() {
+                console.log('The enemy has hit Halle');
+                game.changeIntegrity(-10);
+                enemy.fadeOut();
+            };
+            enemy.onProjectileCollision = function() {
+                 console.log('Hallebot has hit the enemy!');
+                 game.increaseScore(100);
+                 enemy.fadeOut();
+            };
+    }
 
 function createReward(x,y){
-var reward = game.createGameItem('reward',25);
-var rewardImage = draw.bitmap("https://i1.wp.com/freepngimages.com/wp-content/uploads/2015/10/gold-trophy-transparent-background.png?fit=486%2C598");
-rewardImage.x = -25;
-rewardImage.y = -25;
-rewardImage.scaleX = .3;
-rewardImage.scaleY = .3;
-reward.addChild(rewardImage);
-reward.x = x;
-reward.y = y;
-reward.velocityX = -1;
-game.addGameItem(reward);
+    var reward = game.createGameItem('reward',25);
+    var rewardImage = draw.bitmap("https://i1.wp.com/freepngimages.com/wp-content/uploads/2015/10/gold-trophy-transparent-background.png?fit=486%2C598");
+    rewardImage.x = -25;
+    rewardImage.y = -25;
+    rewardImage.scaleX = .3;
+    rewardImage.scaleY = .3;
+    reward.addChild(rewardImage);
+    reward.x = x;
+    reward.y = y;
+    reward.velocityX = -1;
+    game.addGameItem(reward);
+    
+    reward.onProjectileCollision =function(){
+        console.log("Hallebot has destroyed the reward");
+        reward.fadeOut();
+    };
+    reward.onPlayerCollision = function() {
+      console.log('Hallebot got points!');
+      game.increaseScore(1000);
+      reward.fadeOut();
+    };
+    
 
-reward.onPlayerCollision = function() {
-  console.log('Hallebot got points!');
-  game.increaseScore(1000);
-  reward.fadeOut();
-};
- reward.onProjectileCollision = function() {
+ //reward.onProjectileCollision = function() {
 
- };
+ //};
 }
 
 
