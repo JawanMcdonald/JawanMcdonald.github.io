@@ -91,11 +91,16 @@ function moveSnake() {
   
   /* 
   TODO 5: determine the next row and column for the snake's head
-  
   HINT: The snake's head will need to move forward 1 square based on the value
   of snake.head.direction which may be one of "left", "right", "up", or "down"
   */
-  
+  snake.head.direction = snake.head.nextDirection;
+  var nextRow = snake.head.row;
+  var nextColumn = snake.head.column;
+    
+// determine how to change the value of nextRow and nextColumn based on snake.head.direction
+    
+repositionSquare(snake.head, nextRow, nextColumn);
   
 }
 
