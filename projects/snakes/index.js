@@ -211,6 +211,10 @@ function repositionSquare(square, row, column) {
   square.row = row;
   square.column = column;
   
+  snake.head.row          // the current row of snake.head
+  snake.head.column       // the current column of snake.head
+  snake.head.direction    // the direction that the head should move towards
+  
   // position the square on the screen according to the row and column
   square.css('left', column * SQUARE_SIZE + buffer);
   square.css('top', row * SQUARE_SIZE + buffer);
